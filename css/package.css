@@ -1,0 +1,29 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+table {
+    border-collapse: collapse;
+    width: 1180px;
+    height: 300px;
+    margin-top: 150px;
+    margin-left: 150px;
+    margin-right: 150px;
+    margin-bottom: 150px;
+}
+
+th {
+    background-clip: border-box;
+    background-color: #ac0059;
+    color: #fff;
+    border: 1px solid #000000;
+    font-size: 25px;
+    text-align: center;
+}
+
+td {
+    border: 1px solid #000000;
+    font-size: 20px;
+}
+
+div.div1 img {
+    margin: 20px;
+}

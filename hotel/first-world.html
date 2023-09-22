@@ -8,6 +8,51 @@
     <link rel="icon" type="image/x-icon" href="/source/icon.png"> 
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+        .hotel-carousel {
+        position: relative;
+        display: flex;
+        border: 1px solid #ccc;
+        margin: 20px;
+        padding: 20px;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+        border-radius: 5%;
+        }
+
+        .hotel-image {
+        flex-basis: 40%;
+        border-radius: 5%; 
+        }
+
+        .hotel-image img {
+        max-width: 100%;
+        height: auto;
+        border-radius: 5%;
+        }
+
+        .hotel-info {
+        flex-basis: 60%; 
+        padding-left: 20px; 
+        }
+
+        .book-now-button {
+        position: absolute;
+        bottom: 20px;
+        right: 30px;
+        display: inline-block;
+        background-color: #007BFF;
+        color: #fff;
+        padding: 10px 20px;
+        text-decoration: none;
+        border-radius: 5px;
+        transition: background-color 0.3s, transform 0.3s; 
+        }
+
+        .book-now-button:hover {
+        background-color: #0056b3;
+        transform: scale(1.1); 
+        }
+    </style>
 </head>
 
 <body>
@@ -26,6 +71,20 @@
     </header>
     
     <!--Put your content under this comment-->
+
+    <div class="hotel-carousel">
+        <div class="hotel-image">
+            <img src="fwh1.jpg" alt="firstworldhotel">
+        </div>
+        <div class="hotel-info">
+            <h2><strong>First World Hotel</strong></h2>
+            <br>
+            <p>Description of Hotel 1</p>
+            <p>Price: </p>
+            <a href="https://www.booking.com/hotel/my/resorts-world-genting-first-world.en-gb.html?aid=304142&label=gen173nr-1FCAEoggI46AdIM1gEaKEBiAEBmAEJuAEXyAEM2AEB6AEB-AEJiAIBqAIDuALrkrWoBsACAdICJGIzM2E2MDg0LWZmYjktNDRhYS05NmRiLTJmNjE4ODQ3MzYzNdgCBuACAQ&all_sr_blocks=28578833_0_2_0_0;checkin=2023-10-02;checkout=2023-10-03;dest_id=285788;dest_type=hotel;dist=0;group_adults=2;group_children=0;hapos=1;highlighted_blocks=28578833_0_2_0_0;hpos=1;matching_block_id=28578833_0_2_0_0;no_rooms=1;req_adults=2;req_children=0;room1=A%2CA;sb_price_type=total;sr_order=popularity;sr_pri_blocks=28578833_0_2_0_0__19892;srepoch=1695369594;srpvid=0f3d383c2795017f;type=total;ucfs=1&#hotelTmpl" 
+            class="book-now-button">Book Now</a>
+        </div>
+    </div>
 
     <footer class="footer">
         <div class="container">

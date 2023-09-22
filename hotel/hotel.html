@@ -8,6 +8,52 @@
     <link rel="icon" type="image/x-icon" href="/source/icon.png"> 
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <style>
+        body {
+            text-align: center;
+        }
+
+        .container {
+            display: flex; 
+            justify-content: space-between;
+            align-items: flex-start; 
+            flex-wrap: wrap;
+        }
+
+        .image-container {
+            display: inline-block;
+            width: 400px;
+            height: 700px;
+            margin: 30px;
+            padding: 20px;
+            border: 2px solid #ccc;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .image-container img {
+            width: 300px;
+            height: 300px; 
+            display: block;
+            margin: 0 auto;
+            border-radius: 15px;
+        }
+
+        .hotel-name {
+            font-size: 24px; 
+            font-weight: bold;
+            margin-top: 10px;
+        }
+
+        .hotel-description {
+            margin-top: 10px;
+            font-size: 16px; 
+            flex-grow: 1;
+        }
+    </style>
 </head>
 
 <body>
@@ -26,6 +72,60 @@
     </header>
     
     <!--Put your content under this comment-->
+    <div class="hotel-choices">
+
+        <a href="link_to_image1">
+        <div class="image-container">
+                <img src="firstworldhotel.jpg" alt="First World Hotel">
+            
+            <br>
+            <div class="hotel-name">First World Hotel</div>
+            <br>
+            <div class="hotel-description">
+                <p>First World Hotel is the World's largest hotel with the best value.
+                <br>The world largest hotel offers an astronomical 7,351 rooms, a wide selection to spoil
+                <br>travellers of every budget. First World Hotel is situated at the heart of
+                <br>Resorts World Genting, giving guests easy access to key locations such as
+                <br>the First World Plaza, SkyAvenue, Skytropolis Indoor Theme Park, 
+                <br>and Genting International Convention Centre.</p>
+            </div>
+            
+        </div>
+        </a>
+
+        
+        <a href="link_to_image2">
+        <div class="image-container">
+                <img src="gentingskyworldhotel.jpg" alt="Genting Skyworld Hotel">
+            
+            <br>
+            <div class="hotel-name">Genting Skyworld Hotel</div>
+            <br>
+            <div class="hotel-description">
+                <p>Fun and spacious rooms for large travel groups
+                <br>When theres so much to see and do from endless entertainment to thrilling attractions
+                <br>the more is definitely the merrier. The hotel is located at the doorsteps of 
+                <br>the Arena of Stars and SkyAvenue, the resorts most popular lifestyle mall and 
+                <br>home to over 100 restaurants and retail stores.</p>
+            </div>
+        </div>
+        </a>
+
+    
+        <a href="link_to_image3">
+        <div class="image-container">
+                <img src="grandhotel.jpg" alt="Grand Hotel">
+            
+            <br>
+            <div class="hotel-name">Grand Hotel</div>
+            <br>
+            <div class="hotel-description">
+                <p>Enjoy a 5-star stay where elegance and class have stood the test of time, 
+                <br>and indulge in the luxury that comes only from staying at the best.</p>
+            </div>
+        </div>
+        </a>
+    </div>
 
     <footer class="footer">
         <div class="container">

@@ -13,10 +13,10 @@
             text-align: center;
         }
 
-        .container {
-            display: flex; 
-            justify-content: space-between;
-            align-items: flex-start; 
+        div.hotel-choices {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 20px;
             flex-wrap: wrap;
         }
 

@@ -14,31 +14,42 @@
 
 <body>
     <div class="container">
+        <div class="back"><a href="home.html"><button>Back</button></a></div>
         <div class="form-box">
             <h1 id="title">Sign Up</h1>
-            <form>
+            <form id="signup" action="home.html" onsubmit="return" method="get">
                 <div class="input-group">
+
                     <div class="input-field" id="nameField">
                         <i class="fa-solid fa-user"></i>
-                        <input type="text" placeholder="Name" id="uname">
+                        <input type="text" placeholder="Name" id="uname" required />
                     </div>
 
                     <div class="input-field">
                         <i class="fa-solid fa-envelope"></i>
-                        <input type="email" placeholder="Email" id="uemail">
+                        <input type="email" placeholder="Email" id="uEmail" required />
                     </div>
 
-                    <div class="input-field">
+                    <div class="input-field" >
                         <i class="fa-solid fa-lock"></i>
-                        <input type="password" placeholder="Password" id="upassword">
+                        <input type="password" placeholder="Password" id="uPassword" required />
                     </div>
-                    <p>Forgot your password? <a href="forget-pass.html">Click Here!</a></p>
-                </div>
-                 <div class="btn-field">
+                    <p class="paragraph">Forgot your password? <a href="forget-pass.html">Click Here!</a></p>
+                    </div>
+                    <div class="btn-field">
                      <button type="button" id="signupBtn">Sign Up</button>
                      <button type="button" id="signinBtn" class="disable">Sign In</button>
-                 </div>
+                    </div>
+                    </br>
+                    <div class="btn-confirm1" id="btn-confirm1">
+                    <input type="submit" class="confirm" id="signup" value="Sign Up" onclick="store()"/>
+                    </div>
+                    <div class="btn-confirm2" id="btn-confirm2">
+                    <input type="submit" class="confirm" id="signin" value="Sign In" onclick="check()"/>
+                    </div>
+                    </div>
             </form>
+            
         </div>
     </div>
 
@@ -47,22 +58,52 @@
     let signinBtn = document.getElementById("signinBtn");
     let nameField = document.getElementById("nameField");
     let title = document.getElementById("title");
+    let confirm1 = document.getElementById("btn-confirm1");
+    let confirm2 = document.getElementById("btn-confirm2");
     
     signinBtn.onclick = function(){
         nameField.style.maxHeight = "0";
+        confirm1.style.display = "none";
+        confirm2.style.display = "block";
         title.innerHTML = "Sign In";
         signupBtn.classList.add("disable");
         signinBtn.classList.remove("disable");
+        document.getElementById("uname").required = false;
     }
 
     signupBtn.onclick = function(){
         nameField.style.maxHeight = "65px";
+        confirm1.style.display = "block";
+        confirm2.style.display = "none";
         title.innerHTML = "Sign Up";
         signinBtn.classList.add("disable");
         signupBtn.classList.remove("disable");
     }
 
+    function store() {
+        var name = document.getElementById('uname');
+        var email = document.getElementById('uEmail');
+        var pw = document.getElementById('uPassword');
+        localStorage.setItem('storedName', name.value);
+        localStorage.setItem('storedEmail', email.value);
+        localStorage.setItem('storedPass', pw.value);
+        alert('Your account has been created');
+    }
 
+    function check() {
+        var autEmail = localStorage.getItem('storedEmail');
+        var autPw = localStorage.getItem('storedPass');
+
+        var useremail = document.getElementById('uEmail');
+        var userpw = document.getElementById('uPassword');
+
+        if(useremail.value == autEmail && userpw.value == autPw){
+        localStorage.setItem('auth',0);
+        alert('You are logged in.');
+    }else{
+        alert('Error on login');
+    }
+    }
 
 </script>
 

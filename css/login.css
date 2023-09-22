@@ -12,6 +12,28 @@
     background-size: cover;
     position: relative;
 }
+.back {
+    display: block;
+    padding: 20px;
+}
+
+.back button {
+    width: 150px;
+    height: 60px;
+    border: black;
+    border-radius: 30px;
+    color: #fff;
+    background-color: #3c00a0;
+    font-size: 25px;
+    font-weight: 600;
+    text-align: center;
+    transition: all 0.3s ease 0s;
+}
+
+.back button:hover {
+    color: #3c00a0;
+    background-color: #fff;
+}
 
 .form-box{
     width: 90%;
@@ -104,4 +126,57 @@ form p a {
 .btn-field button.disable{
     background: #eaeaea;
     color: #555;
+}
+
+.btn-confirm1 {
+    display: block;
+    float: left;
+}
+.btn-confirm2 {
+    display: none;
+    float: right;
+}
+
+.btn-confirm1 input {
+    margin-top: 20px;
+    width: 200px;
+    background: #226ae7;
+    color: #fff;
+    height: 60px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.btn-confirm1 input:hover {
+    background: #fff;
+    color: #226ae7;
+    scale: 105%;
+}
+
+.btn-confirm2 input {
+    margin-top: 20px;
+    width: 200px;
+    background: #226ae7;
+    color: #fff;
+    height: 60px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.btn-confirm2 input:hover {
+    background: #fff;
+    color: #226ae7;
+    scale: 105%;
 }

@@ -16,6 +16,7 @@ div.hotel-choices {
     justify-content: space-between;
     align-items: flex-start; 
     flex-wrap: wrap;
+    
 }
 
 .image-container {
@@ -30,6 +31,7 @@ div.hotel-choices {
     text-align: center;
     display: flex;
     flex-direction: column;
+    transition: all 0.3s ease 0s;
 }
 
 .image-container:hover {

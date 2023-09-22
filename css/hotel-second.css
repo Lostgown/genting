@@ -1,0 +1,91 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
+
+.hotel-carousel {
+    position: relative;
+    display: flex;
+    border: 1px solid #ccc;
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 3%;
+}
+
+.image-box {
+    width: 725px;
+    height: 350px;
+    border-radius: 10px; 
+    overflow: hidden; 
+    position: relative;
+    background-color: #f7f7f7; 
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.3); 
+}
+
+.marquee {
+    display: inline-block;
+    animation: marquee 15s linear infinite; 
+    white-space: nowrap;
+}
+
+.marquee img {
+    max-width: 100%;
+    height: auto;
+    margin-right: 10px; 
+    border-radius: 10px; 
+}
+
+@keyframes marquee {
+    0% {
+        transform: translateX(0); 
+    }
+    100% {
+        transform: translateX(-100%); 
+    }
+}
+
+.hotel-image {
+    flex-basis: 40%;
+    border-radius: 10%; 
+}
+
+.hotel-image img {
+    max-width: 100%;
+    height: 100%;
+    border-radius: 10%;
+}
+
+.hotel-info {
+    flex-basis: 60%;
+    padding-left: 50px;
+    text-align: left; 
+    font-size: 20px; 
+    line-height: 1.4; 
+    color: #333; 
+}
+
+.hotel-info h2 {
+    font-size: 44px; 
+    margin-bottom: 15px; 
+}
+
+.hotel-info p {
+    margin: 10px 0; 
+}
+
+.book-now-button {
+    position: absolute;
+    bottom: 20px;
+    right: 30px;
+    display: inline-block;
+    background-color: rgba(13, 68, 247, 0.797);
+    color: #000000;
+    padding: 10px 20px;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s, transform 0.3s; 
+}
+
+.book-now-button:hover {
+    background-color: rgba(52, 121, 239, 0.8);
+    transform: scale(1.1); 
+    color:white
+}

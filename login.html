@@ -6,71 +6,107 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Genting | SkyWorlds Theme Park</title>
     <link rel="icon" type="image/x-icon" href="source/icon.png"> 
-    <link rel="stylesheet" href="css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/41b72bea59.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/login.css">
+    
 </head>
 
 <body>
-    <header>
-        <a class="logo" href="home.html"><img src="source/genting-logo.png" alt="logo"></a>
-        <nav>
-            <ul class="nav_links">
-                <li><a href="home.html">Home</a></li>
-                <li><a href="explore/explore.html">Explore</a></li>
-                <li><a href="ticket/ticket.html">Tickets</a></li>
-                <li><a href="hotel/hotel.html">Hotels</a></li>
-                <li><a href="about-us.html">About Us</a></li>
-            </ul>
-        </nav>
-    </header>
-    
-    <!--Put your content under this comment-->
+    <div class="container">
+        <div class="back"><a href="home.html"><button>Back</button></a></div>
+        <div class="form-box">
+            <h1 id="title">Sign Up</h1>
+            <form id="signup" action="home.html" method="get">
+                <div class="input-group">
 
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="explore/facility.html">Theme Park Facility</a></li>
-                        <li><a href="explore/rules.html">Rules and Regulations</a></li>
-                        <li><a href="explore/open-hour.html">Theme Park Open Hours</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Tickets</h4>
-                    <ul>
-                        <li><a href="ticket/promo-package.html">Promotion and Packages</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Hotels</h4>
-                    <ul>
-                        <li><a href="hotel/first-world.html">First World Hotel</a></li>
-                        <li><a href="hotel/skyworld.html">Genting SkyWorlds Hotel</a></li>
-                        <li><a href="hotel/grand.html">Genting Grand</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>About Genting SkyWorlds</h4>
-                    <ul>
-                        <li><a href="about-us.html">About Us</a></li>
-                        <li><a href="contact-us.html">Contact Us</a></li>
-                    </ul>    
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/lee.weihang.14"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/elonmusk"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/w.eihang/"><i class="fab fa-instagram"></i></a>
+                    <div class="input-field" id="nameField">
+                        <i class="fa-solid fa-user"></i>
+                        <input type="text" placeholder="Name" id="uname" required />
                     </div>
-                </div>
-                <div class="footer-address">
-                    <h6><a href="https://goo.gl/maps/xpjScNGSVVfTCvkq9"><img src="source/genting-logo.png" alt="logo"> SkyWorlds, Genting Highlands, 69000 Genting Highlands, Pahang, Malaysia.</a></h6>  
-                </div>
-            </div>
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="uEmail" required />
+                    </div>
+
+                    <div class="input-field" >
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Password" id="uPassword" required />
+                    </div>
+                    <p class="paragraph">Forgot your password? <a href="forget-pass.html">Click Here!</a></p>
+                    </div>
+                    <div class="btn-field">
+                     <button type="button" id="signupBtn">Sign Up</button>
+                     <button type="button" id="signinBtn" class="disable">Sign In</button>
+                    </div>
+                    </br>
+                    <div class="btn-confirm1" id="btn-confirm1">
+                    <input type="submit" class="confirm" id="signup" value="Sign Up" onclick="store()"/>
+                    </div>
+                    <div class="btn-confirm2" id="btn-confirm2">
+                    <input type="submit" class="confirm" id="signin" value="Sign In" onclick="check()"/>
+                    </div>
+                    </div>
+            </form>
+            
         </div>
-    </footer>
+    </div>
+
+<script>
+    let signupBtn = document.getElementById("signupBtn");
+    let signinBtn = document.getElementById("signinBtn");
+    let nameField = document.getElementById("nameField");
+    let title = document.getElementById("title");
+    let confirm1 = document.getElementById("btn-confirm1");
+    let confirm2 = document.getElementById("btn-confirm2");
+    
+    signinBtn.onclick = function(){
+        nameField.style.maxHeight = "0";
+        confirm1.style.display = "none";
+        confirm2.style.display = "block";
+        title.innerHTML = "Sign In";
+        signupBtn.classList.add("disable");
+        signinBtn.classList.remove("disable");
+        document.getElementById("uname").required = false;
+    }
+
+    signupBtn.onclick = function(){
+        nameField.style.maxHeight = "65px";
+        confirm1.style.display = "block";
+        confirm2.style.display = "none";
+        title.innerHTML = "Sign Up";
+        signinBtn.classList.add("disable");
+        signupBtn.classList.remove("disable");
+    }
+
+    function store() {
+        var name = document.getElementById('uname');
+        var email = document.getElementById('uEmail');
+        var pw = document.getElementById('uPassword');
+        localStorage.setItem('storedName', name.value);
+        localStorage.setItem('storedEmail', email.value);
+        localStorage.setItem('storedPass', pw.value);
+        alert('Your account has been created');
+    }
+
+    function check() {
+        var autEmail = localStorage.getItem('storedEmail');
+        var autPw = localStorage.getItem('storedPass');
+
+        var useremail = document.getElementById('uEmail');
+        var userpw = document.getElementById('uPassword');
+
+        if(useremail.value == autEmail && userpw.value == autPw){
+        localStorage.setItem('auth',0);
+        alert('You are logged in.');
+    }else{
+        alert('Error on login');
+        location.reload();
+    }
+    }
+
+</script>
+
 </body>
 </html>

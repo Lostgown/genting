@@ -4,6 +4,7 @@
     box-sizing: border-box;
     margin: 0;
     padding: 0;
+    font-family: "Montserrat", sans-serif;
 }
 
 body {
@@ -48,6 +49,13 @@ header {
     color: #37caef;
 }
 
+.btn-login {
+    display: block;
+}
+
+.btn-profile {
+    display: none;
+}
 button {
     margin-left: 30px;
     padding: 15px 50px;
@@ -79,7 +87,7 @@ ul {
 
 .footer {
     background-color: #24262b;
-    padding: 70px 0;    
+    padding: 70px 0;   
 }
 
 .footer-col {

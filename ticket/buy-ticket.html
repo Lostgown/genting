@@ -8,162 +8,227 @@
     <link rel="icon" type="image/x-icon" href="/source/icon.png"> 
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="/auth.js"></script>
+    <link rel="stylesheet" href="/css/buy-ticket.css" />
+
     <script>
+        function quantity(){
+	for(num=0; num<=10 ; num++)
+	{
+		document.write("<option>" + num + "</option>");
+	}
+	
+}
 
-        function updateTicketPrice() {
-            const selectedTicket = document.getElementById("ticketBox");
-            const selectedOption = selectedTicket.options[selectedTicket.selectedIndex];
-            const price = parseFloat(selectedOption.getAttribute("data-price"));
-            const category = document.querySelector('input[name="category"]:checked').value;
-            const quantity = (category === "Adult") ? 1 : 0.5;
-            const totalPrice = price * quantity;
-            document.getElementById("ticketPrice").textContent = "$" + totalPrice.toFixed(2);
-        }
+function display(obj,num) {
+   //obj refers to desc selection list obj
+   //num refers to which numbers of items 
+   //create variables to represent different ids
+   let price = "Price" + num;
+   let qty = "Quantity" + num;
+   let amount = "Amount" + num;
 
-        document.getElementById("nameBox").addEventListener("input", updateTicketPrice);
-        document.querySelector('input[name="category"]').forEach(radio => {
-            radio.addEventListener("input", updateTicketPrice);
-        });
-        document.getElementById("ticketBox").addEventListener("change", updateTicketPrice);
-        document.getElementById("contactBox").addEventListener("input", updateTicketPrice);
-        document.getElementById("emailBox").addEventListener("input", updateTicketPrice);
+   //display price based dcs selection list
+   if (obj.selectedIndex != 0){
+      document.getElementById(price).value = obj.value;
+      //enable qty selection
+      document.getElementById(qty).disabled = false;
+      //set focus on qty
+      document.getElementById(qty).focus();    
+   }
+   else{
+      document.getElementById(price).value = "";
+      document.getElementById(qty).value = 0;
+      document.getElementById(qty).disabled = true;
+      document.getElementById(amount).value = "0.00";
+   }
+}
 
-        updateTicketPrice();
+function sub(obj,num) {
+   var price = "Price" + num;
+   var amount = "Amount" + num;
+   var qty = obj.selectedIndex;
+
+   //calculate amount of each item 
+   var subtotal = document.getElementById(price).value * qty;
+   //display subtotal
+   document.getElementById(amount).value = subtotal.toFixed(2);
+   //call calculate total function
+   calculate();
+}
+
+function calculate() {
+   //get input amount 1 2 3 textbox
+   //parseFloat() convert string type to float
+   var amt1 = parseFloat(document.getElementById("Amount1").value);
+   var amt2 = parseFloat(document.getElementById("Amount2").value);
+   var amt3 = parseFloat(document.getElementById("Amount3").value);
+
+   //process
+   var total = amt1 + amt2 + amt3;
+   //output
+   document.getElementById("totalAmount").value = total.toFixed(2);
+}
+
+function submitorder(){
+   if(document.getElementById("totalAmount").value > 0){
+      if(confirm("Are you sure to submit your order?") == 1) {
+         //set local storage
+         alert(localStorage.storedName + ", order sucessfully submitted.");
+         window.print();
+         return true;
+      }
+      else {
+         return false;
+      }
+   }
+   else {
+      alert("NO order has been made.");
+      return false;//stop form submission
+   }
+}
+
+function cancel() {
+   if (confirm("Are you sure to cancel this order?") == 1) {
+      window.close();
+   }
+   else {
+      location.reload();
+   }
+}
     </script>
 </head>
 
-<body>
+
     <header>
         <a class="logo" href="/home.html"><img src="/source/genting-logo.png" alt="logo"></a>
-        <nav>
-            <ul class="nav_links">
-                <li><a href="/home.html">Home</a></li>
-                <li><a href="/explore/explore.html">Explore</a></li>
-                <li><a href="ticket.html">Tickets</a></li>
-                <li><a href="/hotel/hotel.html">Hotels</a></li>
-                <li><a href="/about-us.html">About Us</a></li>
-            </ul>
-        </nav>
-        <div class="btn-login" id="btn-login">
-            <a href="login.html"><button>Log In</button></a>
-        </div>
-        <div class="btn-profile" id="btn-profile">
-            <a href="/profile/profile.html"><button>Profile</button></a>
-        </div>
+        
     </header>
     
     <!--Put your content under this comment-->
+    <body onload="init();">
+        <script>
+            function init() {
+                var today = new Date();
+                let day = today.getDate();
+                let month = today.getMonth() + 1;
+                let year = today.getFullYear();
 
-    <form>
-        <h2>Tickets</h2>
-        <form id="themeparkticket" name="themeparkticket"></form>
+                document.getElementById("date").value = day + "/" + month + "/" + year;
+            }
 
-        <div>
-            <label for="buyerName">Name :</label>
-            <input type="text" id="nameBox" name="nameBox"/>
-        </div>
+        </script>
+        <div class="block">
+        </br>
+        <h1>TICKETS</h1>
+            <div class="block1">
+                <form id="ticketForm" id="book"   action="/home.html"  onsubmit="return" method="get">
+                    <label for="name">Name:</label>
+                    <script>document.write(localStorage.storedName)</script><br>
+              
+                    <label for="email">Email:</label>
+                    <script>document.write(localStorage.storedEmail)</script><br><hr>
 
-        <br/>
+                    <div align="right">
+                        <label for="orderDate">Date:</label>
+                        <input type="text" size="10" id="date" disabled/>
+                    </div><br>
 
-        <div>
-            <label for="category">Category</label>
-            <input type="radio" id="Adult" name="category" />
-            <label for="Adult">Adult</label>
-            <input type="radio" id="Children" name="category" />
-            <label for="Children">Children</label>
-        </div>
+                    <table border="1" width=80%>
+                        <tr>
+                           <th>Ticket Type</th>
+                           <th>Price</th>
+                           <th>Quantity</th>
+                           <th>Amount (RM)</th>
+                        </tr>
+                        <tr>
+                           <td>1.
+                           <select id="desc1" name="desc1" onchange="display(this,1);">
+                               <option>Select an item</option>
+                               <option value="60.00">Genting SkyWorld | Children</option>
+                               <option value="90.00">Genting SkyWorld | Adult</option>
+                               <option value="110.00">Genting SkyWorld | Non-Malaysian</option>
+                               <option value="49.00">Genting Skytropolis | Children</option>
+                               <option value="70.00">Genting Skytropolis | Adult</option>
+                               <option value="90.00">Genting Skytropolis | Non-Malaysian</option>
+                           </select>
+                           </td>
+                           <td><input type="text" name="Price1" id="Price1" readonly size=8 /></td>
+                           <td>
+                           <select name="Quantity1"  id="Quantity1" onchange="sub(this,1);" disabled>
+                               <script type="text/javascript">
+                                   quantity();
+                               </script>
+                           </select>
+                           </td>
+                           <td><input type="text" name="Amount1" id="Amount1" size=10 class=numbers  value="0.00"  onchange="calculate();" disabled  /></td>
+                        </tr>
+                        <tr>
+                           <td>2.   
+                           <select id="desc2" name="desc2" onchange="display(this,2);">
+                            <option>Select an item</option>
+                            <option value="60.00">Genting SkyWorld | Children</option>
+                            <option value="90.00">Genting SkyWorld | Adult</option>
+                            <option value="110.00">Genting SkyWorld | Non-Malaysian</option>
+                            <option value="49.00">Genting Skytropolis | Children</option>
+                            <option value="70.00">Genting Skytropolis | Adult</option>
+                            <option value="90.00">Genting Skytropolis | Non-Malaysian</option>
+                           </select>
+                        </td>
+                           <td><input type="text" name="Price2" id="Price2" readonly  size=8 /></td>
+                           <td>
+                              <select name="Quantity2" id="Quantity2"   onchange="sub(this,2);"  disabled >
+                               <script type="text/javascript">
+                                   quantity();
+                               </script>
+                           </select>
+                        
+                           </td>
+                           <td><input type="text" name="Amount2" id="Amount2" size=10 class=numbers value="0.00"  onchange="calculate();" disabled /></td>
+                        </tr>
+                        <tr>
+                           <td>3.   
+                           <select id="desc3" name="desc3" onchange="display(this,3);"      >
+                            <option>Select an item</option>
+                            <option value="60.00">Genting SkyWorld | Children</option>
+                            <option value="90.00">Genting SkyWorld | Adult</option>
+                            <option value="110.00">Genting SkyWorld | Non-Malaysian</option>
+                            <option value="49.00">Genting Skytropolis | Children</option>
+                            <option value="70.00">Genting Skytropolis | Adult</option>
+                            <option value="90.00">Genting Skytropolis | Non-Malaysian</option>
+                           </select>
+                        </td>
+                           <td><input type="text" name="Price3" id="Price3" readonly="readonly" size=8 /></td>
+                           <td>
+                              <select name="Quantity3" id="Quantity3"  onchange="sub(this,3);" disabled>
+                               <script type="text/javascript">
+                                   quantity();
+                               </script>
+                           </select>
+                        
+                           </td>
+                           <td><input type="text" name="Amount3" id="Amount3" size=10 class=numbers  value="0.00"   onchange="calculate();" disabled /></td>
+                        </tr>
+                        
+                        <tr>
+                           <td align=right width=360 colspan=3 >Total Amount:</td>
+                           <td width=85><input type="text" name="totalAmount" id="totalAmount" size="10"   value="0.00"  disabled  /></td>
+                        </tr>
+                        </table>
 
-        <br/>
-
-        <div>
-            <label for="ticketType">Ticket Type</label>
-            <input type="text" list="ticketType" id="ticketBox" name="ticketBox" />
-            <datalist id="ticketType">
-                <option value="Genting SkyWorlds Theme Park 1-Day Ticket" data-price="RM128">
-                <option value="Genting SkyWorlds Theme Park 1-Day Ticket with Photo+" data-price="RM153">
-                <option value="Genting SkyWorlds Theme Park - 1-Day 2 Parks Combo" data-price="RM162">
-                <option value="Genting SkyWorlds Theme Park - Attractions Combo" data-price="RM167">
-                <option value="Genting SkyWorlds Theme Park 2-Day Ticket" data-price="RM283">
-                <option value="Genting SkyWorlds Theme Park VIP Experience 11AM" data-price="RM318">
-                <option value="Genting SkyWorlds Theme Park VIP Experience 1PM" data-price="RM318">
-                <option value="Genting SkyWorlds Theme Park 4-to-Go Fun Combo" data-price="RM588">
-                </option>
-            </datalist>
-        </div>
-
-        <br>
-
-        <div id="priceDisplay">
-            Ticket Price: <span id="ticketPrice">RM0.00</span>
-        </div>
-        
-        <br/>
-
-        <div>
-            <label for="contactBox">Contact :</label>
-            <input type="text" id="contactBox" name="contactBox"/>
-        </div>
-
-        <br/>
-
-        <div>
-            <label for="emailBox">Email :</label>
-            <input type="email" id="emailBox" name="emailBox"/>
-        </div>
-
-        <br/>
-
-        <div>
-            <input type="submit" id="submitBox" value="Submit"/>
-            <input type="reset" id="resetBox" value="Clear Form"/>
-        </div>
-    </form>
-
-    <footer class="footer">
-        <div class="container">
-            <div class="row">
-                <div class="footer-col">
-                    <h4>Explore</h4>
-                    <ul>
-                        <li><a href="/explore/facility.html">Theme Park Facility</a></li>
-                        <li><a href="/explore/rules.html">Rules and Regulations</a></li>
-                        <li><a href="/explore/open-hour.html">Theme Park Open Hours</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Tickets</h4>
-                    <ul>
-                        <li><a href="promo-package.html">Promotion and Packages</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>Hotels</h4>
-                    <ul>
-                        <li><a href="/hotel/first-world.html">First World Hotel</a></li>
-                        <li><a href="/hotel/skyworld.html">Genting SkyWorlds Hotel</a></li>
-                        <li><a href="/hotel/grand.html">Genting Grand</a></li>
-                    </ul>
-                </div>
-                <div class="footer-col">
-                    <h4>About Genting SkyWorlds</h4>
-                    <ul>
-                        <li><a href="/about-us.html">About Us</a></li>
-                        <li><a href="/contact-us.html">Contact Us</a></li>
-                    </ul>    
-                </div>
-                <div class="footer-col">
-                    <h4>Follow Us</h4>
-                    <div class="social-links">
-                        <a href="https://www.facebook.com/lee.weihang.14"><i class="fab fa-facebook-f"></i></a>
-                        <a href="https://twitter.com/elonmusk"><i class="fab fa-twitter"></i></a>
-                        <a href="https://www.instagram.com/w.eihang/"><i class="fab fa-instagram"></i></a>
+                        <hr width="600" align="left" />
+                            <input type="Submit" value="Submit Order"  onclick="submitorder()"/>
+                            &nbsp;&nbsp;
+                            <input type="button" value="Cancel Order" onclick="cancel()"  />
+                            &nbsp;&nbsp;
                     </div>
-                </div>
-                <div class="footer-address">
-                    <h6><a href="https://goo.gl/maps/xpjScNGSVVfTCvkq9"><img src="/source/genting-logo.png" alt="logo"> SkyWorlds, Genting Highlands, 69000 Genting Highlands, Pahang, Malaysia.</a></h6>  
-                </div>
+
+
+                 
+
+                  </form>
             </div>
+        </br>
         </div>
-    </footer>
-</body>
+    </body>
 </html>

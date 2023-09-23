@@ -17,7 +17,7 @@
         <div class="back"><a href="home.html"><button>Back</button></a></div>
         <div class="form-box">
             <h1 id="title">Sign Up</h1>
-            <form id="signup" action="home.html" method="get">
+            <form id="signup" method="get">
                 <div class="input-group">
 
                     <div class="input-field" id="nameField">
@@ -84,10 +84,27 @@
         var name = document.getElementById('uname');
         var email = document.getElementById('uEmail');
         var pw = document.getElementById('uPassword');
+
+        if(name.value.length == 0){
+        alert('Please fill your name.');
+
+    }else if(email.value.length == 0){
+        alert('Please fill your email.');
+        
+    }else if(pw.value.length == 0){
+        alert('Please fill in password');
+
+    }else if(name.value.length == 0 && pw.value.length == 0){
+        alert('Please fill in email and password');
+
+    }else {
+
         localStorage.setItem('storedName', name.value);
         localStorage.setItem('storedEmail', email.value);
         localStorage.setItem('storedPass', pw.value);
         alert('Your account has been created');
+        window.location.reload();
+    }
     }
 
     function check() {
@@ -100,9 +117,11 @@
         if(useremail.value == autEmail && userpw.value == autPw){
         localStorage.setItem('auth',0);
         alert('You are logged in.');
+        window.location.href="/home.html";
+
     }else{
         alert('Error on login');
-        location.reload();
+        window.location.reload();
     }
     }
 

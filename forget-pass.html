@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>    
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="x-ua-compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Genting | SkyWorlds Theme Park</title>
+    <link rel="icon" type="image/x-icon" href="source/icon.png"> 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script src="https://kit.fontawesome.com/41b72bea59.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="css/login.css">
+    
+</head>
+
+<body>
+    <div class="container">
+        <div class="back"><a href="home.html"><button>Back</button></a></div>
+        <div class="form-box">
+            <h1 id="title">Forget Password</h1>
+            <form id="signup" method="get">
+                <div class="input-group">
+
+                    <div class="input-field">
+                        <i class="fa-solid fa-envelope"></i>
+                        <input type="email" placeholder="Email" id="uEmail" required />
+                    </div>
+
+                    <div class="input-field" >
+                        <i class="fa-solid fa-lock"></i>
+                        <input type="password" placeholder="Enter a new password" id="uPassword" required />
+                    </div>
+
+                    </br>
+                    <div class="btn-reset" id="btn-reset">
+                    <input type="submit" class="resetPass" id="resetPass" value="Reset Password" onclick="storeAgn()"/>
+                    </div>
+                </div>
+            </form>
+            
+        </div>
+    </div>
+
+<script>
+    
+    function storeAgn() {
+        var email = document.getElementById('uEmail');
+        var pw = document.getElementById('uPassword');
+        checkEmail = localStorage.getItem('storedEmail');
+
+        if (email.value == checkEmail){
+        localStorage.setItem('storedPass', pw.value);
+        alert('Your password has been reset.');
+        window.location.href="login.html";    
+
+        }else{
+            alert('Invalid email.');
+            window.location.reload();
+    }
+    }
+
+</script>
+
+</body>
+</html>

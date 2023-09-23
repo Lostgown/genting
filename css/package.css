@@ -1,29 +1,94 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@500&display=swap');
 
+* {
+    margin: 0;
+    padding: 0;
+    font-family: "Montserrat", sans-serif;
+}
+
+.container1 {
+    display: block;
+    padding: auto;
+    box-sizing: border-box;
+    width: 100%;
+    background-image: linear-gradient(rgba(0, 0, 50,0.8), rgba(0, 0, 50,0.8)),url(/source/signup-backdrop.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+.buy {
+display: block;
+width: 100%;
+padding: 0px 25px;
+}
+
+
+
+.buy input {
+    color: #fff;
+    background-color: burlywood;
+    margin-top: 50px;
+    width: 280px;
+    height: 70px;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 25px;
+    transition: all 0.3s ease 0s;
+}
+
+.buy input:hover{
+    scale: 110%;
+    cursor: pointer;
+}
+
+.block {
+    margin-top: 20px;
+    width: 80%;
+    display: block;
+    background-color: rgba(255, 255, 255,0.7);
+    border-radius: 15px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 table {
-    border-collapse: collapse;
-    width: 1180px;
-    height: 300px;
-    margin-top: 150px;
-    margin-left: 150px;
-    margin-right: 150px;
-    margin-bottom: 150px;
+    width: 90%;
+}
+
+table, th, td {
+    border:10px outset black;
+    text-align: center;
+    font-size: 25px;
+}
+
+.ticket {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.ticket caption{
+    font-size: 40px;
+    color: #3c00a0;
+    text-shadow: 1px 1px 20px #fff;
+}
+
+.package {
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.package caption{
+    font-size: 40px;
+    color: #3c00a0;
+    text-shadow: 1px 1px 20px #fff;
 }
 
 th {
-    background-clip: border-box;
-    background-color: #ac0059;
     color: #fff;
-    border: 1px solid #000000;
-    font-size: 25px;
-    text-align: center;
+    background-color: #3c00a0;
 }
 
-td {
-    border: 1px solid #000000;
-    font-size: 20px;
-}
-
-div.div1 img {
-    margin: 20px;
+td{
+    color: black;
+    background-color: bisque;
 }

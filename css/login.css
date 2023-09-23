@@ -180,3 +180,30 @@ form p a {
     color: #226ae7;
     scale: 105%;
 }
+
+.btn-reset {
+    display: block;
+    align-content: center;
+}
+
+.btn-reset input {
+    margin-top: 20px;
+    width: 200px;
+    background: #226ae7;
+    color: #fff;
+    height: 60px;
+    border-radius: 20px;
+    border: 0;
+    outline: 0;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+    font-size: 20px;
+    text-align: center;
+    
+}
+
+.btn-reset input:hover {
+    background: #fff;
+    color: #226ae7;
+    scale: 105%;
+}

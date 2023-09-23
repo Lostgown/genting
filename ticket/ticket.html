@@ -25,7 +25,7 @@
             </ul>
         </nav>
         <div class="btn-login" id="btn-login">
-            <a href="login.html"><button>Log In</button></a>
+            <a href="/login.html"><button>Log In</button></a>
         </div>
         <div class="btn-profile" id="btn-profile">
             <a href="/profile/profile.html"><button>Profile</button></a>
@@ -33,244 +33,106 @@
     </header>
     
     <!--Put your content under this comment-->
-<div id="block">
-    <table>
+<body>
+<div class="container1">
+<div class="buy">
+    <input type="button" id="btn-buy" value="Buy Now" onclick="buy()" />
+    <script>
+        function buy(){
+            var auth = localStorage.getItem('auth');
+
+            if(auth == 0) {
+                window.location.href="buy-ticket.html";
+            }else {
+                if(confirm('You have not log in to an account yet. Do you want to log in?') == 1){
+                    window.location.href="/login.html";
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+    </script>
+</div>
+
+<div class="block">
+    <table class="ticket">
+        <caption>TICKETS</caption>
+        <thead>
+            <tr>
+                <th>Price</th>
+                <th>Genting Skyworld</th>
+                <th>Genting Skytropolis</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <th>Package</th>
-                <th>Tickets Includes</th>
-                <th>Price</th>
-                <th>Buy It</th>
+                <th>Children</br>(age below 12)</th>
+                <td>RM60</td>
+                <td>RM49</td>
             </tr>
-
             <tr>
-                <th>Genting SkyWorlds Theme Park 1-Day Ticket</th>
-                <td>*Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysian public holidays.
-                    <br>
-                    <br>
-                    *1-Day unlimited entry to Genting SkyWorlds
-                    <br>
-                    <br>
-                    *Complimentary three (3) VQ reservations (on your day visit)
-                    <br>
-                    <br>
-                </td>
-                <td>
-                        RM128
-                    </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
+                <th>Adults</th>
+                <td>RM90</td>
+                <td>RM70</td>
             </tr>
-
             <tr>
-                <th>Genting SkyWorlds Theme Park 1-Day Ticket with Photo+</th>
-                <td>*1-Day unlimited entry to Genting SkyWorlds; Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysian public holidays.
-                    <br>
-                    <br>
-                    *Complimentary three (3) VQ reservations (30 days advance)
-                    <br>
-                    <br>
-                    *Photo+ Pass to download & share unlimited digital photo contents & Complimentary one (1) 6x8 inches printed photo with folder
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM153
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Genting SkyWorlds Theme Park - 1-Day 2 Parks Combo</th>
-                <td>*1-Day unlimited entry to Genting SkyWorlds; Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysia public holidays
-                    <br>
-                    <br>
-                    *Skytropolis Indoor Theme Park 1-Day Unlimited Ride Pass
-                    <br>
-                    <br>
-                    *Complimentary three (3) VQ reservations (on your day visit to Genting SkyWorlds)
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM162
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Genting SkyWorlds Theme Park 1-Day Ticket with Photo+</th>
-                <td>*1-Day unlimited entry to Genting SkyWorlds; Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysian public holidays.
-                    <br>
-                    <br>
-                    *Complimentary three (3) VQ reservations (30 days advance)
-                    <br>
-                    <br>
-                    *Photo+ Pass to download & share unlimited digital photo contents & Complimentary one (1) 6x8 inches printed photo with folder
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM163
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Genting SkyWorlds Theme Park - Attractions Combo</th>
-                <td>*1-Day unlimited entry to Genting SkyWorlds; Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysian public holidays
-                    <br>
-                    <br>
-                    *One-time entry to six (6) attractions at Ripley’s Adventureland
-                    <br>
-                    <br>
-                    *Complimentary three (3) VQ reservations (on your day visit to Genting SkyWorlds)
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM167
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Genting SkyWorlds Theme Park 2-Day Ticket</th>
-                <td>*Two-consecutive (02) days unlimited entry to Genting SkyWorlds. Complimentary three (3) VQ reservations (on your day visit)
-                    <br>
-                    <br>
-                    *Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysian public holidays.
-                    <br>
-                    <br>
-                    *Valid from 01 Sep to 31 Dec 2023
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM283
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Genting SkyWorlds Theme Park VIP Experience 11AM</th>
-                <td>*11am to 2pm
-                    <br>
-                    <br>
-                    *Each tour is three (3) consecutive hours for a minimum of four (4) guests and a maximum of ten (10) guests.
-                    <br>
-                    <br>
-                    *Genting SkyWorlds VIP Experience ambassadors will work with you to plan and customize your day and accompany you throughout the park, sharing their amazing behind-the-scenes stories with you!
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM318
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-            
-            <tr>
-                <th>Genting SkyWorlds Theme Park VIP Experience 1PM</th>
-                <td>*1pm to 4pm
-                    <br>
-                    <br>
-                    *Each tour is three (3) consecutive hours for a minimum of four (4) guests and a maximum of ten (10) guests.
-                    <br>
-                    <br>
-                    *Genting SkyWorlds VIP Experience ambassadors will work with you to plan and customize your day and accompany you throughout the park, sharing their amazing behind-the-scenes stories with you!
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM318
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
-            </tr>
-
-            <tr>
-                <th>Genting SkyWorlds Theme Park 4-to-Go Fun Combo</th>
-                <td>*Park Hours: 11AM – 6PM | Closed every Tuesday except Malaysian public holidays
-                    <br>
-                    <br>
-                    *Four (04) 1-Day tickets to Genting SkyWorlds (Standard/ Child/ Senior/ Guests with Disabilities)
-                    <br>
-                    <br>
-                    *Complimentary three (3) VQ reservations (on your day visit)
-                    <br>
-                    <br>
-                </td>
-                <td>
-                    RM588
-                </td>
-                <td>
-                    <div class="div1">
-                        <a href="buy-ticket.html">
-                            <img src="/css/tick.jpg">
-                        </a>
-                    </div>
-                </td>
+                <th>Non - Malaysian</th>
+                <td>RM110</td>
+                <td>RM90</td>
             </tr>
         </tbody>
     </table>
-</div>
 
-    <footer class="footer">
+</br>
+
+    <table class="package">
+        <caption>PACKAGES</caption>
+        <thead>
+            <tr>
+                <th>Packages</th>
+                <th>Description</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <th>Genting 2 Park Combo</th>
+                <td>Enjoy 2 Genting Theme Park with a single one-day pass</td>
+                <td>RM140</td>
+            </tr>
+            <tr>
+                <th>Skyworld Family Combo</th>
+                <td>For a 3 person family packages</td>
+                <td>RM200</td>
+            </tr>
+            <tr>
+                <th>2 Come 4 Fun Combo</th>
+                <td>A packages for 4 person to have fun in both Theme Park</td>
+                <td>RM520</td>
+            </tr>
+        </tbody>
+    </table>
+</br>
+</br>
+</br>
+
+</div>
+</br>
+</div>
+</body>
+
+
+<footer class="footer">
         <div class="container">
             <div class="row">
                 <div class="footer-col">
                     <h4>Explore</h4>
                     <ul>
-                        <li><a href="/explore/facility.html">Theme Park Facility</a></li>
-                        <li><a href="/explore/rules.html">Rules and Regulations</a></li>
-                        <li><a href="/explore/open-hour.html">Theme Park Open Hours</a></li>
+                        <li><a href="/explore/BigTop.html">Big Top</a></li>
+                        <li><a href="/explore/GentingBowl.html">Genting Bowl</a></li>
+                        <li><a href="/explore/SkyVR.html">Sky VR</a></li>
+                        <li><a href="/explore/VisionCity.html">Vision City</a></li>
                     </ul>
                 </div>
                 <div class="footer-col">
@@ -291,7 +153,6 @@
                     <h4>About Genting SkyWorlds</h4>
                     <ul>
                         <li><a href="/about-us.html">About Us</a></li>
-                        <li><a href="/contact-us.html">Contact Us</a></li>
                     </ul>    
                 </div>
                 <div class="footer-col">
@@ -308,5 +169,4 @@
             </div>
         </div>
     </footer>
-</body>
 </html>

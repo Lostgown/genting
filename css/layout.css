@@ -49,6 +49,13 @@ header {
     color: #37caef;
 }
 
+.btn-login {
+    display: block;
+}
+
+.btn-profile {
+    display: none;
+}
 button {
     margin-left: 30px;
     padding: 15px 50px;

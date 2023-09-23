@@ -17,7 +17,7 @@
         <div class="back"><a href="home.html"><button>Back</button></a></div>
         <div class="form-box">
             <h1 id="title">Sign Up</h1>
-            <form id="signup" action="home.html" onsubmit="return" method="get">
+            <form id="signup" action="home.html" method="get">
                 <div class="input-group">
 
                     <div class="input-field" id="nameField">
@@ -102,6 +102,7 @@
         alert('You are logged in.');
     }else{
         alert('Error on login');
+        location.reload();
     }
     }
 

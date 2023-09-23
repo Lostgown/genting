@@ -8,6 +8,28 @@
     <link rel="icon" type="image/x-icon" href="/source/icon.png"> 
     <link rel="stylesheet" href="/css/layout.css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"/>
+    <script>
+
+        function updateTicketPrice() {
+            const selectedTicket = document.getElementById("ticketBox");
+            const selectedOption = selectedTicket.options[selectedTicket.selectedIndex];
+            const price = parseFloat(selectedOption.getAttribute("data-price"));
+            const category = document.querySelector('input[name="category"]:checked').value;
+            const quantity = (category === "Adult") ? 1 : 0.5;
+            const totalPrice = price * quantity;
+            document.getElementById("ticketPrice").textContent = "$" + totalPrice.toFixed(2);
+        }
+
+        document.getElementById("nameBox").addEventListener("input", updateTicketPrice);
+        document.querySelector('input[name="category"]').forEach(radio => {
+            radio.addEventListener("input", updateTicketPrice);
+        });
+        document.getElementById("ticketBox").addEventListener("change", updateTicketPrice);
+        document.getElementById("contactBox").addEventListener("input", updateTicketPrice);
+        document.getElementById("emailBox").addEventListener("input", updateTicketPrice);
+
+        updateTicketPrice();
+    </script>
 </head>
 
 <body>
@@ -26,6 +48,71 @@
     </header>
     
     <!--Put your content under this comment-->
+
+    <form>
+        <h2>Tickets</h2>
+        <form id="themeparkticket" name="themeparkticket"></form>
+
+        <div>
+            <label for="buyerName">Name :</label>
+            <input type="text" id="nameBox" name="nameBox"/>
+        </div>
+
+        <br/>
+
+        <div>
+            <label for="category">Category</label>
+            <input type="radio" id="Adult" name="category" />
+            <label for="Adult">Adult</label>
+            <input type="radio" id="Children" name="category" />
+            <label for="Children">Children</label>
+        </div>
+
+        <br/>
+
+        <div>
+            <label for="ticketType">Ticket Type</label>
+            <input type="text" list="ticketType" id="ticketBox" name="ticketBox" />
+            <datalist id="ticketType">
+                <option value="Genting SkyWorlds Theme Park 1-Day Ticket" data-price="RM128">
+                <option value="Genting SkyWorlds Theme Park 1-Day Ticket with Photo+" data-price="RM153">
+                <option value="Genting SkyWorlds Theme Park - 1-Day 2 Parks Combo" data-price="RM162">
+                <option value="Genting SkyWorlds Theme Park - Attractions Combo" data-price="RM167">
+                <option value="Genting SkyWorlds Theme Park 2-Day Ticket" data-price="RM283">
+                <option value="Genting SkyWorlds Theme Park VIP Experience 11AM" data-price="RM318">
+                <option value="Genting SkyWorlds Theme Park VIP Experience 1PM" data-price="RM318">
+                <option value="Genting SkyWorlds Theme Park 4-to-Go Fun Combo" data-price="RM588">
+                </option>
+            </datalist>
+        </div>
+
+        <br>
+
+        <div id="priceDisplay">
+            Ticket Price: <span id="ticketPrice">RM0.00</span>
+        </div>
+        
+        <br/>
+
+        <div>
+            <label for="contactBox">Contact :</label>
+            <input type="text" id="contactBox" name="contactBox"/>
+        </div>
+
+        <br/>
+
+        <div>
+            <label for="emailBox">Email :</label>
+            <input type="email" id="emailBox" name="emailBox"/>
+        </div>
+
+        <br/>
+
+        <div>
+            <input type="submit" id="submitBox" value="Submit"/>
+            <input type="reset" id="resetBox" value="Clear Form"/>
+        </div>
+    </form>
 
     <footer class="footer">
         <div class="container">

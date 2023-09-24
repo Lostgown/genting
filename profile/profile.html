@@ -40,8 +40,14 @@
                 <input type="button" id="btn-logout" value="Log Out" onclick="logout()"/>
                 <script>
                     function logout() {
-                        localStorage.clear();
-                        window.location.href="/home.html";
+                        if(confirm('Are you sure you want to log out?') == 1){
+                            localStorage.clear();
+                            window.location.href="/home.html";
+                            return true;
+                        } else {
+                            return false;
+                        }
+                        
                     }
                 </script>
             </div>

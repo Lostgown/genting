@@ -51,3 +51,22 @@ hr {
     color: black;
     background-color: black;
 }
+
+input, select{
+    font-size: 25px;
+}
+
+input#submit {
+    color: #fff;
+    width: 200px;
+    height: 50px;
+    background-color: green;
+    border: 0;
+    border-radius: 30px;
+    transition: all 0.8s ease 0s;
+}
+
+input#submit:hover {
+    scale: 110%;
+    cursor: pointer;
+}

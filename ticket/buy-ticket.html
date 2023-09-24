@@ -88,14 +88,7 @@ function submitorder(){
    }
 }
 
-function cancel() {
-   if (confirm("Are you sure to cancel this order?") == 1) {
-      window.close();
-   }
-   else {
-      location.reload();
-   }
-}
+
     </script>
 </head>
 
@@ -144,7 +137,7 @@ function cancel() {
                         <tr>
                            <td>1.
                            <select id="desc1" name="desc1" onchange="display(this,1);">
-                               <option>Select an item</option>
+                               <option>Select a Ticket Type</option>
                                <option value="60.00">Genting SkyWorld | Children</option>
                                <option value="90.00">Genting SkyWorld | Adult</option>
                                <option value="110.00">Genting SkyWorld | Non-Malaysian</option>
@@ -166,7 +159,7 @@ function cancel() {
                         <tr>
                            <td>2.   
                            <select id="desc2" name="desc2" onchange="display(this,2);">
-                            <option>Select an item</option>
+                            <option>Select a Ticket Type</option>
                             <option value="60.00">Genting SkyWorld | Children</option>
                             <option value="90.00">Genting SkyWorld | Adult</option>
                             <option value="110.00">Genting SkyWorld | Non-Malaysian</option>
@@ -186,16 +179,15 @@ function cancel() {
                            </td>
                            <td><input type="text" name="Amount2" id="Amount2" size=10 class=numbers value="0.00"  onchange="calculate();" disabled /></td>
                         </tr>
+                        
                         <tr>
                            <td>3.   
                            <select id="desc3" name="desc3" onchange="display(this,3);"      >
-                            <option>Select an item</option>
-                            <option value="60.00">Genting SkyWorld | Children</option>
-                            <option value="90.00">Genting SkyWorld | Adult</option>
-                            <option value="110.00">Genting SkyWorld | Non-Malaysian</option>
-                            <option value="49.00">Genting Skytropolis | Children</option>
-                            <option value="70.00">Genting Skytropolis | Adult</option>
-                            <option value="90.00">Genting Skytropolis | Non-Malaysian</option>
+                            <option>Select a Package</option>
+                            <option value="140.00">Genting 2 Park Combo</option>
+                            <option value="200.00">Skyworld Family Combo</option>
+                            <option value="520.00">2 Come 4 Fun Combo</option>
+
                            </select>
                         </td>
                            <td><input type="text" name="Price3" id="Price3" readonly="readonly" size=8 /></td>
@@ -214,19 +206,14 @@ function cancel() {
                            <td align=right width=360 colspan=3 >Total Amount:</td>
                            <td width=85><input type="text" name="totalAmount" id="totalAmount" size="10"   value="0.00"  disabled  /></td>
                         </tr>
-                        </table>
+                        </table><br>
 
-                        <hr width="600" align="left" />
-                            <input type="Submit" value="Submit Order"  onclick="submitorder()"/>
-                            &nbsp;&nbsp;
-                            <input type="button" value="Cancel Order" onclick="cancel()"  />
+                        <hr width="600" align="left" /><br>
+                            <input type="Submit" id="submit" value="Submit Order"  onclick="submitorder()"/>
                             &nbsp;&nbsp;
                     </div>
-
-
-                 
-
                   </form>
+                  <br>
             </div>
         </br>
         </div>

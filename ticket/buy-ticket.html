@@ -74,7 +74,7 @@ function submitorder(){
    if(document.getElementById("totalAmount").value > 0){
       if(confirm("Are you sure to submit your order?") == 1) {
          //set local storage
-         alert(localStorage.storedName + ", order sucessfully submitted.");
+         alert(localStorage.storedName + ", Pre-order sucessfully submitted. You will receive an email within 7 working days to make a payment.");
          window.print();
          return true;
       }
@@ -126,6 +126,11 @@ function submitorder(){
                         <label for="orderDate">Date:</label>
                         <input type="text" size="10" id="date" disabled/>
                     </div><br>
+
+                    <div align="left">
+                        <label for="visitDate">Visit Date:</label>
+                        <input type="date" id="date" />    
+                    </div>
 
                     <table border="1" width=80%>
                         <tr>
